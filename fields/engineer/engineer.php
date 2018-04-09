@@ -9,6 +9,12 @@ class EngineerField extends BaseField {
 		$this->Field = new \Engineer\Field();
 	}
 
+	public function readonly() {
+    $pageWithModel = getPageModel($this->page, kirby()->models());
+
+    return enableLegalContent(kirby()->site()->user()->current()->role(), $pageWithModel);
+  }
+
 	public function presentation() {
 		return $this->Presentation;
 	}

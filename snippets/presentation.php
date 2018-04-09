@@ -31,10 +31,15 @@
 								'id' => $id,
 							));
 						?></div>
-					<?php echo egr::snippet('actions', array('buttons' => egr::buttons($presentation))); ?>
+					<?php if(!$instance->readonly()): ?>
+						<?php echo egr::snippet('actions', array('buttons' => egr::buttons($presentation))); ?>
+						<?php endif ?>
 				</div><?php
 			endforeach; endif; ?>
 	</div>
 
-	<?php echo egr::snippet('row-meta', array('fieldset_names' => $presentation['_dropdown'])); ?>
+	<?php if(!$instance->readonly()): ?>
+		<?php echo egr::snippet('row-meta', array('fieldset_names' => $presentation['_dropdown'])); ?>
+	<?php endif ?>
+
 </div>
