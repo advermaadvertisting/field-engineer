@@ -10,7 +10,7 @@ class EngineerField extends BaseField {
 	}
 
 	public function readonly() {
-    $pageWithModel = getPageModel($this->page, kirby()->models());
+    $pageWithModel = helper::customPageForPanelPage($this->page, kirby()->models());
 
     return enableLegalContent(kirby()->site()->user()->current()->role(), $pageWithModel);
   }
